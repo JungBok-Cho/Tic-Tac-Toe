@@ -1,9 +1,9 @@
 /*
  * JungBok Cho
- * CPSC 5002, Seattle University
- * This is free and unencumbered software released into the public domain.
+ * Tic Tac Toe game in Java
  */
 package choj8_p1;
+
 /**
  * This is a program to create and display the game Tic-Tac-Toe.
  * 
@@ -11,18 +11,21 @@ package choj8_p1;
  * @version 1.0
  */
 public class TicTacToe {
-	private int size;					// To hold the size of the board
-	private char[][] board;			// Create a board with two-dimensional array
-	private char player = 'X';		// To hold a value of player
+	
+	private int size;		// To hold the size of the board
+	private char[][] board;		// Create a board with two-dimensional array
+	private char player = 'X';	// To hold a value of player
+	
 	
 	/**
 	 * This constructor initializes the object of TicTacToe class.
 	 * 
-	 * @param boardSize	The board size
+	 * @param boardSize  The board size
 	 */
 	public TicTacToe(int boardSize) {
 		size = boardSize;
 	}
+	
 	
 	/**
 	 * Reset the board
@@ -36,6 +39,7 @@ public class TicTacToe {
 		}
 	}
 	
+	
 	/**
 	 * Display the turn
 	 */
@@ -46,6 +50,7 @@ public class TicTacToe {
 			System.out.println(player + ", it is your turn.");
 		}
 	}
+	
 	
 	/**
 	 * Change the turn
@@ -58,13 +63,14 @@ public class TicTacToe {
 		}
 	}
 	
+	
 	/**
 	 * Check whether the spot is open
 	 * 
-	 * @param putRow	A value of row user inputs
-	 * @param putCol	A value of column user inputs
-	 * @return	Return true if the space is open
-	 * 			Return false if it is already taken
+	 * @param putRow    A value of row user inputs
+	 * @param putCol    A value of column user inputs
+	 * @return   Return true if the space is open
+	 * 	     Return false if it is already taken
 	 */
 	public boolean openSpot(int putRow, int putCol) {
 		if(board[putRow][putCol] == ' ') {
@@ -73,17 +79,18 @@ public class TicTacToe {
 		return false;
 	}
 	
+	
 	/**
 	 * Check who is the winner
 	 * 
-	 * @return	Return the winner
-	 * 			Return just space if there is no winner.
+	 * @return   Return the winner
+	 * 	     Return just space if there is no winner.
 	 */
 	public char checkWin() {
 		char checkingRow = ' ',		// To hold a winner from row section
-			  checkingCol = ' ',		// To hold a winner from column section
-			  checkingDia1 = ' ',	// To hold a winner from the 1st diagonal
-			  checkingDia2 = ' ';	// To hold a winner from the 2nd diagonal
+		     checkingCol = ' ',		// To hold a winner from column section
+		     checkingDia1 = ' ',	// To hold a winner from the 1st diagonal
+		     checkingDia2 = ' ';	// To hold a winner from the 2nd diagonal
 
 		// Check each row and each column if there is a winner
 		for(int i = 0; i < size; i++) {
@@ -112,12 +119,14 @@ public class TicTacToe {
 		// If not, return a space
 		return ' ';
 	}
+	
+	
 	/**
 	 * Check each row
 	 * 
 	 * @param index	Index of a row
-	 * @return			Return player if there is winner
-	 * 					Return just space if not
+	 * @return   Return player if there is winner
+	 * 	     Return just space if not
 	 */
 	private char checkRow(int index) {
 		for(int col = 0; col < size - 1; col++) {
@@ -135,12 +144,13 @@ public class TicTacToe {
 		return ' ';		 
 	}
 	
+	
 	/**
 	 * Check each column
 	 * 
 	 * @param index	Index of a column
-	 * @return			Return player if there is winner
-	 * 					Return just space if not
+	 * @return    Return player if there is winner
+	 * 	      Return just space if not
 	 */
 	private char checkCol(int index) {
 		for(int row = 0; row < size - 1; row++) {
@@ -158,11 +168,12 @@ public class TicTacToe {
 		return ' ';		 
 	}
 	
+	
 	/**
 	 * Check the first diagonal
 	 * 
-	 * @return	Return player if there is winner
-	 * 			Return just space if not
+	 * @return    Return player if there is winner
+	 * 	      Return just space if not
 	 */
 	private char checkDia1() {
 		for(int i = 0; i < size - 1; i++) {
@@ -178,11 +189,12 @@ public class TicTacToe {
 		return ' ';
 	}
 	
+	
 	/**
 	 * Check the second diagonal
 	 * 
-	 * @return	Return player if there is winner
-	 * 			Return just space if not
+	 * @return    Return player if there is winner
+	 *    	      Return just space if not
 	 */
 	private char checkDia2() {
 		for(int i = 0, j = size - 1; i < size - 1 && j >= 1; i++, j--) {
@@ -199,15 +211,17 @@ public class TicTacToe {
 		return ' ';
 	}
 	
+	
 	/**
 	 * Update the board
 	 * 
-	 * @param putRow	The row user inputs
-	 * @param putCol	The column user inputs
+	 * @param putRow    The row user inputs
+	 * @param putCol    The column user inputs
 	 */
 	public void updateBoard(int putRow, int putCol) {
 		board[putRow][putCol] = player;
 	}
+	
 	
 	/**
 	 * Print the board
