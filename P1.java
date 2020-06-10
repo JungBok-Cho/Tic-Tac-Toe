@@ -1,9 +1,7 @@
 /*
  * JungBok Cho
  * CPSC 5002, Seattle University
- * This is free and unencumbered software released into the public domain.
  */
-package choj8_p1;
 import java.util.Scanner;
 /**
  * This is a program to play the game Tic-Tac-Toe.
